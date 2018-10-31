@@ -1,0 +1,31 @@
+{% extends "index.html.twig" %}
+
+{% block tree %}
+    <ul>
+        {% for file in tree.folder %}
+            <li><a class="menu fa fa-chevron-right" href="#" id="{{ file }}">{{ file }}</a></li>
+        {% endfor %}
+
+        {% for file in tree.file %}
+            <li><a class="menu file" href="#" id="{{ file }}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block content %}
+    <a href="{{ previous_url }}"><img src="/assets/icon/arrow.png" height="30" width="30"></a>
+    {% if (file_content is defined) and (file_content is not same as(null)) %}
+    <pre>
+        {{ file_content }}
+    </pre>
+    {% endif %}
+
+    {% if (image_path is defined) and (image_path is not same as(null)) %}
+        <img src="{{ image_path }}">
+    {% endif %}
+{% endblock %}
+
+{% block javascript %}
+<script src="/script.js"></script>
+
+{% endblock %}

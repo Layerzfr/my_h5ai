@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>My_h5ai</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="header">
+        <div class="row">
+            <div class="col-md-2 mx-auto">
+                <h1>My_h5ai</h1>
+            </div>
+        </div>
+        <div class="row border-top border-bottom">
+            <div class="col-md-2 mx-auto my-auto">
+                <p class="my-auto">{{ currentpwd }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 border-right" id="tree">
+            <ul class="tree">
+            {% block tree %}
+
+            {% endblock %}
+            </ul>
+        </div>
+
+        <div class="col-md-offset-5">
+
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% block javascript %}
+
+{% endblock %}
+</body>
+</html>

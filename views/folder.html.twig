@@ -1,0 +1,49 @@
+{% extends "index.html.twig" %}
+
+{% block tree %}
+    <ul>
+        {% for file in tree.folder %}
+            <li><a class="menu fa fa-chevron-right" href="#" id="{{ file }}">{{ file }}</a></li>
+        {% endfor %}
+
+        {% for file in tree.file %}
+            <li><a class="menu file" href="#" id="{{ file }}">{{ file }}</a></li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+    <a href="{{ previous_url }}"><img src="/assets/icon/arrow.png" width="30" height="30"></a>
+    {% if folders is defined %}
+        {% for folder in folders %}
+            <div class="folder">
+                <img src="/assets/icon/folder.png" height="35" width="35">
+                <a href="/{% if current_url is not null %}{{ current_url }}{% endif %}{{ slash }}{{ folder.foldername }}">{{ folder.foldername }}</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if files is defined %}
+        {% for file in files %}
+            <div class="file">
+                {% if file.file_not_found is same as(NULL) %}
+                    <img src="/assets/icon/{{ file.extension }}.png" height="35" width="35">
+                {% else %}
+                    <img src="/{{ file.file_not_found }}" height="35" width="35">
+                {% endif %}
+                <a href="/{% if current_url is not null %}{{ current_url }}{% endif %}{{ slash }}{{ file.filename }}">
+                    <p> {{ file.filename }}</p>
+                </a>
+                <p>- {{ file.size }} Bytes - Last Update: {{ file.modification }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+{% endblock %}
+
+{% block javascript %}
+<script src="/script.js"></script>
+
+{% endblock %}
