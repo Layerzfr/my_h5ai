@@ -1,7 +1,6 @@
 <?php
 require_once 'vendor/autoload.php';
 
-//header('Content-Type: application/json');
 $request = $_SERVER['REQUEST_URI'];
 if(isset($_POST['dir']) && !empty($_POST['dir'])){
     $dir = $_POST['dir'];
@@ -300,9 +299,6 @@ class Folder
                 );
             } else {
                 $this->setFolder($this->file->getFilename());
-//                if($this->file->getFilename() === ".."){
-//                    $this->setFolder(null);
-//                }
                 $folderArray[] = array(
                     'foldername' => $this->folder,
                 );
