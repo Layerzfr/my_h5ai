@@ -1,8 +1,5 @@
 $(document).on("click", ".menu", function () {
     const directory = $(this);
-    // if($(this).hasClass('file')){
-    //     return false;
-    // }
     if ($(this).parent().has("li").length) {
         deleteList($(this).parent(), $(this));
         $(this).attr("class", "menu fa fa-chevron-right");
